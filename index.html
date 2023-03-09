@@ -35,7 +35,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3678035024';
+    var serviceWorkerVersion = '897538382';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -60,7 +60,8 @@
       // 後台的「Scopes」要設定開啟 profile, openid
       liff.getProfile()
         .then(function (profile) {
-          console.log(profile);
+          //console.log(profile);
+          alert(profile);
         });
 
       // 這邊開始寫使用其他功能
