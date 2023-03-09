@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,28 +28,50 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>my_app</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3266425050';
+    var serviceWorkerVersion = '702904303';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
+
 <body>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    window.addEventListener('load', function(ev) {
+
+    var liffID = '1660724456-POnQQWNB';
+
+    liff.init({
+      liffId: liffID
+    }).then(function () {
+      console.log('LIFF init');
+
+      // 這邊開始寫使用其他功能
+
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+    // function initializeLiff(myLiffId) {
+    //   liff.init({ liffId: myLiffId })
+    // }
+
+    // initializeLiff('1660724456-POnQQWNB');
+
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
             appRunner.runApp();
           });
         }
@@ -56,4 +79,5 @@
     });
   </script>
 </body>
+
 </html>
