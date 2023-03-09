@@ -35,7 +35,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '702904303';
+    var serviceWorkerVersion = '225132259';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -51,6 +51,25 @@
       liffId: liffID
     }).then(function () {
       console.log('LIFF init');
+
+      // 取得使用者類型資料
+      var context = liff.getContext();
+      console.log(context);
+
+      // 取得使用者公開資料
+      // 後台的「Scopes」要設定開啟 profile, openid
+      liff.getProfile()
+        .then(function (profile) {
+          console.log(profile);
+        });
+
+      // 取得使用者 email
+      // 後台的 Email address permission 要是「Applied」
+      // LIFF 的設定，Scopes 的「email*」要打勾
+      // 使用者在登入時，「電子郵件帳號」也要是「許可」的
+      var user = liff.getDecodedIDToken();
+      var email = user.email;
+      console.log(email);
 
       // 這邊開始寫使用其他功能
 
