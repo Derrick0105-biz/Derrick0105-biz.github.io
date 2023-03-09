@@ -35,7 +35,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '2368188411';
+    var serviceWorkerVersion = '85774299';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -58,16 +58,18 @@
 
       // 取得使用者公開資料
       // 後台的「Scopes」要設定開啟 profile, openid
-      liff.getProfile()
-        .then(function (profile) {
-          //console.log(profile);
-          alert(profile.displayName);
-        });
+
+      var userProfile = liff.getProfile();
+      // liff.getProfile()
+      //   .then(function (profile) {
+      //     //console.log(profile);
+      //     alert(profile.displayName);
+      //   });
 
       liff.sendMessages([
         {
           type: 'text',
-          text: 'Hello, World!'
+          text: userProfile.displayName + '是大帥哥'
         }
       ]).then(function (res) {
         console.log(res)
